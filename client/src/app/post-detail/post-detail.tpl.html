@@ -1,0 +1,44 @@
+<div class="pure-g text-center" style="background: lightgray">
+  <div class="large-container">
+    <div class="post-content-box">
+      <div class="pure-u-1">
+        <h1 style="margin-bottom: 0;"><a ui-sref="root.other-users-profiles({userId:postDetailCtrl.user})">{{postDetailCtrl.username}}</a></h1>
+      </div>
+      <div class="pure-u-1">
+        <h1 style="margin-bottom: 0;">{{postDetailCtrl.data.title}}</h1>
+        <p>{{postDetailCtrl.data.content}}</p>
+      </div>
+    </div>
+    <div class="pure-u-1 audio-row">
+      <div class="audio-player">
+        <h2><a class="audio-link" href="{{postDetailCtrl.audioUrl}}" target="_blank">{{postDetailCtrl.shortAudioName}}</a></h2>
+        <audio id="audio-player" class="audio-file" controls="controls" ng-src="{{postDetailCtrl.audioUrl}}" type="audio/*"></audio>
+      </div>
+    </div>
+
+    <div class="pure-u-1">
+      <form class="pure-form pure-form-stacked" data-ng-submit="postDetailCtrl.writeComment(postDetailCtrl.comment)" novalidate>
+        <fieldset class="text-center" style="height: 100px;">
+          <textarea ng-enter="postDetailCtrl.writeComment(postDetailCtrl.comment)" id="message-text" placeholder="Make a comment... (press enter to send)" data-ng-model="postDetailCtrl.comment"></textarea>
+          <input type="submit" value="send" class="pure-button pure-button-primary" style="height:100%;">
+        </fieldset>
+      </form>
+    </div>
+
+    <div class="pure-u-1" ng-repeat="comments in postDetailCtrl.commentList | orderBy:'-createdAt'">
+      <div class="comment-box">
+        <div class="inner-comment-box">
+          <a ui-sref="root.other-users-profiles({userId:comments.commentUser.objectId})" class="post-detail-picture" ng-style="{{postDetailCtrl.pictureStyle}}"></a>
+          <div class="comment-content">
+            <div class="comment-username">
+              <a ui-sref="root.other-users-profiles({userId:comments.commentUser.objectId})">{{comments.commentUser.username}}</a>
+            </div>
+          </div>
+          <div class="comment">
+            <p>{{comments.commentContent}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

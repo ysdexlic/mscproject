@@ -1,0 +1,27 @@
+<div class="pure-g text-center">
+  <div class="pure-u-1 posting-form">
+    <new-post-form></new-post-form>
+    <p style="color:red">{{vm.errorMessage}}</p>
+  </div>
+  <div class="pure-u-lg-1-3 pure-u-md-1-2 pure-u-1 single-post" ng-repeat="post in vm.postList | orderBy:'-createdAt' | limitTo: 20">
+    <a class="post-card" ui-sref="root.post-detail({postId: post.postId})">
+      <div class="top-row">
+        <div class="picture-box">
+          <img class="user-picture" ng-src="{{post.userPictureUrl}}">
+        </div>
+        <div class="post-top-text">
+          <h4>{{post.username}}</h4>
+          <p>{{post.postTitle}}</p>
+        </div>
+      </div>
+      <div class="bottom-row">
+        <p>{{post.postContent | characters:90}}</p>
+      </div>
+    </a>
+  </div>
+  <div class="pure-u-1 island">
+    <a href class="next-buttons" ng-click="vm.previous()">&#x2190;</a>
+    <a href ng-repeat="i in vm.numberToArray(vm.pages) track by $index" ng-click="vm.jumpToPage($index+1)" style="display: inline-block; padding: 10px;">{{$index + 1}}</a>
+    <a href class="next-buttons" ng-click="vm.next()">&#x2192;</a>
+  </div>
+</div>

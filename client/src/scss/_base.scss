@@ -1,0 +1,161 @@
+//@import 'normalize';
+
+/* Fonts
+   ========================================================================== */
+@import url(https://fonts.googleapis.com/css?family=Quicksand);
+html,
+button,
+input,
+select,
+textarea,
+.pure-g [class *= "pure-u"] {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+}
+/* Defaults
+   ========================================================================== */
+* {
+  transition: 0.1s;
+}
+
+html {
+  @include font-size($base-root-size);
+  line-height: 1.5;
+  background: $session-green;
+}
+
+body {
+  overflow-x: hidden;
+  background: $white;
+}
+::-moz-selection {
+
+  @include selection();
+}
+::selection {
+
+  @include selection();
+}
+::-webkit-input-placeholder {
+
+  @include placeholder();
+}
+::-moz-placeholder {
+
+  @include placeholder();
+}
+:-ms-input-placeholder {
+  @include placeholder();
+
+}
+
+textarea {
+  resize: none;
+  margin: 0;
+}
+
+img.pure-img {
+  vertical-align: middle;
+  max-width: 60%;
+  display: inline;
+
+}
+code {
+  color: $red;
+
+}
+h3 {
+  font-weight: normal;
+  @include font-size(22);
+
+}
+.pure-menu.pure-menu-horizontal {
+  background: $session-green;
+  color: $white;
+  border-bottom: 1px solid $black;
+  position:fixed;
+}
+
+.pure-menu li a {
+  color: $white;
+}
+
+.pure-menu li a:hover{
+  background: $session-green;
+  color: lighten($orange, 20);
+}
+
+.pure-menu li a:focus {
+  background: $session-green;
+  outline:none;
+}
+
+.pure-menu .active-menu a {
+  color: lighten($orange,10);
+}
+
+a {
+  color: $blue;
+  text-decoration: none;
+  line-height: inherit;
+}
+a:focus,
+a:hover {
+  color: darken($blue, 9);
+
+}
+a.pure-button:focus,
+a.pure-button:hover {
+  color: #fff;
+
+}
+pre {
+  code {
+    color: $black;
+    background-color: $silver;
+    border-width: 1px;
+    border-style: solid;
+    border-color: $gray;
+    display: block;
+    padding: 0.5em;
+  }
+
+}
+h4 {
+  @include font-size(21);
+}
+h1, h2, h3, h4 {
+  font-weight: 300;
+}
+
+
+.pure-form input.ng-invalid.ng-dirty {
+  border: 1px solid #FA787E;
+}
+.pure-form input.ng-valid.ng-dirty {
+  border: 1px solid #78FA89;
+}
+
+.margin-island {
+  margin:1em;
+}
+
+
+footer {
+  background: $session-green;
+  color: $white;
+  border-top: 1px solid $black;
+
+  a {
+    color: darken($white,20);
+  }
+
+  a:hover {
+    color: $white;
+  }
+}
+
+.next-buttons {
+  font-size: 4em;
+  margin: 0 20px;
+}

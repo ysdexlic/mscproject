@@ -1,0 +1,36 @@
+<div class="pure-g text-center" style="background: lightgray">
+  <div class="large-container">
+    <div class="pure-u-1">
+      <h1>{{vm.otherUser.username}}</h1>
+    </div>
+
+    <div class="pure-u-1">
+      <form id="message-send-form" class="pure-form pure-form-stacked" data-ng-submit="vm.sendMessage(vm.userId, vm.message)" novalidate>
+        <fieldset class="text-center" style="height: 100px;">
+          <textarea ng-enter="vm.sendMessage(vm.userId, vm.message)" id="message-text" placeholder="Type a message... (press enter to send)" data-ng-model="vm.message"></textarea>
+          <input type="submit" value="send" class="pure-button pure-button-primary" style="height:100%;">
+        </fieldset>
+      </form>
+    </div>
+
+
+    <div class="pure-u-1" ng-repeat="message in vm.messageList | orderBy:'-messageCreatedAt'">
+      <div class="message-line">
+        <div class="messages-container" ng-style="{{message.messageStyle}}">
+          <a ui-sref="root.other-users-profiles({userId:message.messageUserId})" ng-hide="message.messageSender" class="message-picture" ng-style="{{vm.pictureStyle}}"></a>
+          <div ng-class="message.messageSender? 'bubble1' : 'bubble2'">
+            <p>{{message.messageContent}}</p>
+          </div>
+          <a ui-sref="root.other-users-profiles({userId:message.messageUserId})" ng-show="message.messageSender" class="message-picture" ng-style="{{vm.pictureStyle}}"></a>
+          <p style="color:gray; font-size: 0.6em;">{{message.messageCreatedAt | date:"dd MMM yyyy"}}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="pure-u-1 island">
+      <a href ng-click="vm.getOlderMessages()">Load older messages</a>
+    </div>
+
+  </div>
+
+</div>

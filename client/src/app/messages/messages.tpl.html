@@ -1,0 +1,26 @@
+<div class="pure-g margin-island text-center all-messages">
+  <div class="pure-u-1 single-message" ng-repeat="message in messageCtrl.newThing | orderBy:'-updatedAt'">
+    <a class="message-card" ui-sref="root.message-detail({messageId: message.messageId})">
+      <div class="message-picture-box" ng-style="{{message.pictureStyle}}"></div>
+        <div class="message-top-row">
+        <div class="message-user-info">
+          <div class="message-username">
+            {{message.username}}
+          </div>
+        </div>
+        <div class="message-info">
+          <div class="message-username">
+            {{message.updatedAt | date:"dd MMM yyyy"}}
+          </div>
+        </div>
+      </div>
+      <div class="message-bottom-row">
+        <div class="message-content-snippet">
+          {{message.newestMessage.content | characters: 20}}
+        </div>
+
+      </div>
+
+    </a>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<div class="pure-g island text-center">
+  <div class="pure-u-1">
+    <input class="search-box" placeholder="Search" ng-model="searchBox">
+  </div>
+  <div class="pure-u-lg-1-3 pure-u-md-1-2 pure-u-1 single-post" ng-repeat="post in vm.postList | orderBy:'-createdAt' | filter:searchBox">
+    <a class="post-card" ui-sref="root.post-detail({postId: post.postId})">
+      <div class="top-row">
+        <div class="picture-box" ng-style="{{vm.pictureStyle}}">
+        </div>
+        <div class="post-top-text">
+          <h4>{{post.username}}</h4>
+          <p>{{post.postTitle}}</p>
+        </div>
+      </div>
+      <div class="bottom-row">
+        <p>{{post.postContent | characters:140}}</p>
+      </div>
+    </a>
+  </div>
+  <div class="pure-u-1">
+    <a href class="next-buttons" ng-click="vm.previous()" style="display: inline-block;">&#x2190;</a>
+    <a href ng-repeat="i in vm.numberToArray(vm.pages) track by $index" ng-click="vm.jumpToPage($index+1)" style="display: inline-block; padding: 10px;">{{$index + 1}}</a>
+    <a href class="next-buttons" ng-click="vm.next()" style="display: inline-block;">&#x2192;</a>
+  </div>
+</div>

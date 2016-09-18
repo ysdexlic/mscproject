@@ -1,0 +1,47 @@
+<div class="pure-g text-center">
+  <div class="pure-u-1">
+    <div class="profile-header island">
+      <div class="profile-picture island">
+        <img data-ng-src="{{vm.picture}}" style="width: 200px;"/>
+        <div data-ng-show="vm.isCurrentUser">
+          <input type="file" name="file" id="profile-picture-upload" accept="image/*" onchange="angular.element(this).scope().uploadFile(this.files)">
+          <label for="profile-picture-upload">Change Picture</label>
+        </div>
+      </div>
+      <div class="profile-info">
+        <h1>{{vm.username}}</h1>
+        <h3>{{vm.data.instrument}}</h3>
+      </div>
+      <div class="messaging" data-ng-hide="vm.isCurrentUser">
+        <a class="message-button" href data-ng-click="vm.message()">Send Message</a>
+      </div>
+      <div class="follow" data-ng-hide="vm.isCurrentUser">
+        <a class="message-button" href data-ng-click="vm.follow()">{{vm.followString}}</a>
+      </div>
+      <div class="following">
+        <a class="mini-button" href="#/user/{{vm.id}}/following"><p style="margin:0;">Following</p><p style="margin:0;">{{ vm.followingNumber }}</p></a>
+        <a class="mini-button" href="#/user/{{vm.id}}/followers"><p style="margin:0;">Followers</p><p style="margin:0;">{{ vm.followerNumber }}</p></a>
+      </div>
+    </div>
+  </div>
+  <div class="pure-u-lg-1-3 pure-u-md-1-2 pure-u-1 single-post" data-ng-repeat="post in vm.postList | orderBy:'-createdAt' | filter:searchBox">
+    <a class="post-card" href="#/posts/{{post.postId}}">
+      <div class="top-row">
+        <div class="picture-box" data-ng-style="{{vm.pictureStyle}}">
+        </div>
+        <div class="post-top-text">
+          <h4>{{post.username}}</h4>
+          <p>{{post.postTitle}}</p>
+        </div>
+      </div>
+      <div class="bottom-row">
+        <p>{{post.postContent | characters:140}}</p>
+      </div>
+    </a>
+  </div>
+  <div class="pure-u-1">
+    <a href class="next-buttons" ng-click="vm.previous()">&#x2190;</a>
+    <a href ng-repeat="i in vm.numberToArray(vm.pages) track by $index" ng-click="vm.jumpToPage($index+1)" style="display: inline-block; padding: 10px;">{{$index + 1}}</a>
+    <a href class="next-buttons" ng-click="vm.next()">&#x2192;</a>
+  </div>
+</div>

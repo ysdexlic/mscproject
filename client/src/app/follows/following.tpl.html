@@ -1,0 +1,21 @@
+<div class="pure-g island text-center">
+  <div class="pure-u-1">
+    <h1><a href="#/user/{{vm.id}}">{{ vm.username }}</a> is following {{ vm.count }} people</h1>
+  </div>
+    <div class="pure-u-lg-1-3 pure-u-md-1-2 pure-u-1 single-post" ng-repeat="following in vm.followingList">
+      <a class="post-card" href="#/user/{{following.followingUserId}}">
+        <div class="top-row">
+          <div class="picture-box" data-ng-style="{{vm.pictureStyle}}">
+          </div>
+          <div class="post-top-text">
+            <h4>{{following.followingUsername}}</h4>
+            <p>{{following.followingUserInstrument}}</p>
+          </div>
+        </div>
+        <div class="bottom-row">
+          <p>{{following.followingUserBio | characters:140}}</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<div id="header" class="pure-menu pure-menu-open pure-menu-horizontal text-center">
+  <ul>
+    <li data-ng-show="HeaderCtrl.isLoggedIn" class="pure-menu-item" data-ng-class="{ 'active-menu' : HeaderCtrl.getClass('/home') }">
+      <a href data-ui-sref="root.homepage">{{ 'Home' | uppercase }}</a>
+    </li>
+    <li data-ng-show="HeaderCtrl.isLoggedIn" class="pure-menu-item" data-ng-class="{ 'active-menu' : HeaderCtrl.getProfile('/user/') }">
+      <a data-ui-sref="root.other-users-profiles({userId: HeaderCtrl.userId})">{{ 'Profile' | uppercase }}</a>
+    </li>
+    <li data-ng-show="HeaderCtrl.isLoggedIn" class="pure-menu-item" data-ng-class="{ 'active-menu' : HeaderCtrl.getClass('/posts') }">
+      <a href data-ui-sref="root.posts">{{ 'Posts' | uppercase }}</a>
+    </li>
+    <li data-ng-show="HeaderCtrl.isLoggedIn" class="pure-menu-item" data-ng-class="{ 'active-menu' : HeaderCtrl.getClass('/messages') }">
+      <a href data-ui-sref="root.messages">{{ 'Messages' | uppercase }}</a>
+    </li>
+  </ul>
+  <ul data-ng-show="HeaderCtrl.isLoggedIn" style="float:right;">
+    <li class="pure-menu-item">
+      <a href data-ng-click="HeaderCtrl.logOut()">{{ 'Log Out' }}</a>
+    </li>
+  </ul>
+</div>

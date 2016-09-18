@@ -1,0 +1,178 @@
+/**
+MESSAGES
+**/
+
+.message-card {
+  display: block;
+  width: 100%;
+  height: 100px;
+  border-bottom: 1px solid $gray;
+  text-align: center;
+  margin: auto;
+  font-size: 100%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  //transition: 0.1s;
+  background: $white;
+}
+
+.message-card:hover {
+  background: darken($white,10);
+}
+
+.message-picture-box {
+  float: left;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 10px;
+  background: $silver;
+}
+
+
+.single-message {
+  //text-align: left;
+}
+
+
+.message-user-info {
+  float: left;
+  margin: 5px 0 0 5px;
+}
+
+.message-info {
+  float: right;
+  margin: 5px 5px 0 0;
+}
+
+.message-top-row {
+  height:40px;
+}
+
+.message-bottom-row {
+  height:60px;
+}
+
+.all-messages {
+  border: 1px solid $gray;
+}
+
+
+
+/**
+MESSAGE DETAIL
+**/
+
+.messages-container1 {
+  width:50%;
+  margin:auto;
+  text-align: right;
+}
+
+.messages-container2 {
+  width:50%;
+  margin:auto;
+  text-align: left;
+}
+
+.bubble1
+{
+  position: relative;
+  display: inline-block;
+  color: $white;
+  width: auto;
+  height: 100%;
+  background: $session-green;
+  padding: 0 15px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  z-index: 1;
+
+}
+
+
+.bubble1:before
+{
+  content: '';
+  position: absolute;
+  border-style: solid;
+  border-width: 12px 0 12px 22px;
+  border-color: transparent $session-green;
+  display: block;
+  width: 0;
+  z-index: -1;
+  margin-top: -12px;
+  right: -10px;
+  top: 50%;
+}
+
+.bubble2
+{
+  position: relative;
+  display: inline-block;
+  width: auto;
+  height: 100%;
+  color: $black;
+  background: #e5ebef;
+  padding: 0 15px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  z-index: 1;
+
+}
+
+.bubble2:before
+{
+  content: '';
+  position: absolute;
+  border-style: solid;
+  border-width: 12px 22px 12px 0;
+  border-color: transparent #e5ebef;
+  display: block;
+  width: 0;
+  z-index: -1;
+  margin-top: -12px;
+  left: -10px;
+  top: 50%;
+}
+
+
+.message-picture {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 10px 0 10px;
+}
+
+.message-line {
+  width:100%;
+  margin:auto;
+}
+
+.large-container {
+  width:50%;
+  margin:auto;
+  background: $white;
+}
+
+@media (max-width: 800px) {
+  .large-container {
+    width:75%;
+  }
+}
+
+@media (max-width: 600px) {
+  .large-container {
+    width:90%;
+  }
+}
+
+#message-text {
+  width:50%;
+  display:inline-block;
+  height:100%;
+  margin:0
+}

@@ -1,0 +1,144 @@
+/**
+POSTS
+**/
+
+.single-post {
+  //border: 1px solid black;
+  margin: 1em auto 1em auto;
+  text-align: center;
+}
+
+.search-box {
+  display: block;
+  position: relative;
+  float: right;
+  margin-right: 70px;
+}
+
+.post-card {
+  display: block;
+  width: 300px;
+  height: 200px;
+  border: 1px solid $gray;
+  text-align: center;
+  margin: auto;
+  font-size: 100%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  background: $light-gray;
+}
+
+.post-card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.top-row {
+  display: flex;
+  height: 140px;
+}
+
+
+.picture-box {
+  float: left;
+  width: 140px;
+  height: 100%;
+  border-bottom: 1px solid $silver;
+  border-right: 1px solid $silver;
+  background: $silver;
+
+}
+
+.user-picture {
+  width: 100%;
+  vertical-align: middle;
+  background-size: cover;
+}
+
+.post-top-text {
+  margin:auto;
+  margin-top: 2px;
+  width: 160px;
+
+  h4 {
+    margin:0;
+    //text-decoration: underline;
+    color: $black;
+  }
+  p {
+    margin:0;
+    color: $black;
+    font-size: 0.8em;
+  }
+}
+
+.bottom-row {
+  height: 60px;
+  p {
+    margin: 0;
+    color: $black;
+    font-size: 0.8em;
+  }
+}
+
+.vertical-helper {
+  display: inline-block;;
+  vertical-align: middle;
+
+}
+
+
+
+/**
+POST DETAIL
+**/
+
+.post-content-box {
+  background: $light-gray;
+  border-bottom: 1px solid $silver;
+}
+
+
+.audio-file {
+  display: block;
+  margin: auto;
+  width:90%;
+}
+
+.audio-row {
+  margin-bottom: 20px;
+}
+
+.comment-box {
+  background: $light-gray;
+  height: 100%;
+  border: 1px solid $silver;
+}
+
+.inner-comment-box {
+  //width:70%;
+  margin:10px;
+  text-align: left;
+}
+
+.comment {
+  margin: 0 20px 0 70px;
+  p {
+    margin: 0;
+  }
+}
+
+.comment-content {
+  display: inline-block;
+  vertical-align: top;
+  font-size: 2em;
+}
+
+
+.post-detail-picture {
+  width: 50px;
+  height: 50px;
+  //border-radius: 50%;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 10px 0 10px;
+}

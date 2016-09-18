@@ -1,0 +1,26 @@
+<div class="pure-g island text-center">
+  <div class="pure-u-1">
+    <form class="pure-form pure-form-stacked" data-ng-submit="vm.post(vm.userId, vm.username, vm.title, vm.content)" novalidate>
+      <fieldset class="text-center" >
+        <input type="text" placeholder="Title" data-ng-model="vm.title" style="width:30%; margin:auto;" required>
+        <textarea placeholder="Write about what you're posting...." data-ng-model="vm.content" style="width:30%; height:100px; margin:10px auto;" required></textarea>
+        <input id="file-upload" type="file" name="file" accept="audio/*" onchange="angular.element(this).controller().uploadFile(this.files)" required>
+        <label for="file-upload">Upload File</label>
+        <div ng-show="vm.loading" style="display: inline-block; vertical-align: middle;">
+          <div class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+          </div>
+          <div>
+            <p style="margin:0;">Loading</p>
+          </div>
+        </div>
+      </fieldset>
+      <div style="display: inline-block; height:100%;">
+        <button id="send-post" type="submit" class="pure-button pure-button-primary">Post</button>
+      </div>
+    </form>
+
+  </div>
+</div>

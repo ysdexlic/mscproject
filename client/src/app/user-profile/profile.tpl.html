@@ -1,0 +1,13 @@
+<div class="pure-g island text-center">
+  <div class="pure-u-1">
+    <h1>{{profileCtrl.username}}</h1>
+    <h3>{{profileCtrl.data.instrument}}</h3>
+    <img ng-src="{{profileCtrl.picture}}" style="width: 200px;"/>
+    <br/>
+    <input type="file" name="file" accept="image/*" onchange="angular.element(this).scope().uploadFile(this.files)">
+    <br/>
+    <a href="#/user/{{profileCtrl.id}}/following">Following ({{ profileCtrl.followingNumber }})</a>
+    <br/>
+    <a href="#/user/{{profileCtrl.id}}/followers">Followers ({{ profileCtrl.followerNumber }})</a>
+  </div>
+</div>

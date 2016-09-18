@@ -1,0 +1,108 @@
+/**
+USER PROFILES
+**/
+
+
+// HEADER
+
+.profile-header {
+  background: $light-gray;
+  text-align: center;
+}
+
+
+// PROFILE PICTURE
+.profile-picture {
+  border: 1px solid $gray;
+  border-radius: 4px;
+  background: $silver;
+  width:200px;
+  margin:auto;
+}
+
+.profile-picture-holder {
+  width: 200px;
+  height: 200px;
+}
+
+.profile-info {
+
+}
+
+.message-button {
+  background-color: $session-green;
+  border: 1px solid $black;
+  border-radius: 3px;
+  color: $white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.message-button:hover {
+  background-color: darken($session-green, 10);
+  color: white;
+}
+
+
+.messaging {
+  display: inline-block;
+}
+
+.follow {
+  display: inline-block;
+}
+
+.following {
+  //display: inline-block;
+
+}
+
+.mini-button {
+  background-color: $gray;
+  border: 1px solid $black;
+  border-radius: 3px;
+  color: $white;
+  padding: 3px 3px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.mini-button:hover {
+  background-color: darken($gray, 10);
+  color: white;
+}
+
+#profile-picture-upload {
+  width: 0;
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+#profile-picture-upload + label {
+  font-size: 1.25em;
+  font-weight: 700;
+  color: white;
+  background-color: $session-green;
+  border-radius: 4px;
+  display: inline-block;
+  cursor: pointer;
+  padding: 0.5em 1em;
+}
+
+#profile-picture-upload:focus + label,
+#profile-picture-upload + label:hover {
+  background-color: darken($session-green, 20);
+}
+
