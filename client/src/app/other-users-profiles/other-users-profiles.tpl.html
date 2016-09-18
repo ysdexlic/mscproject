@@ -10,10 +10,23 @@
       </div>
       <div class="profile-info">
         <h1>{{vm.username}}</h1>
-        <h3>{{vm.data.instrument}}</h3>
+        <h3>{{vm.data.instrument}} <a href data-ng-click="vm.editInstrument()" data-ng-show="vm.isCurrentUser">{{vm.instrumentEditString}}</a></h3>
+        <form data-ng-show="vm.editingInstrument" class="pure-form pure-form-stacked" data-ng-submit="vm.createNewInstrument(vm.newInstrument)" novalidate>
+          <fieldset class="text-center" style="height: 50px;">
+            <textarea ng-enter="vm.createNewInstrument(vm.newInstrument)" id="instrument-text" placeholder="What instrument do you play?" data-ng-model="vm.newInstrument"></textarea>
+            <input type="submit" value="save" class="pure-button pure-button-primary" style="height:100%;">
+          </fieldset>
+        </form>
+        <p>{{vm.data.bio}} <a href data-ng-click="vm.editBio()" data-ng-show="vm.isCurrentUser">{{vm.bioEditString}}</a></p>
+        <form data-ng-show="vm.editingBio" class="pure-form pure-form-stacked" data-ng-submit="vm.createNewBio(vm.newBio)" novalidate>
+          <fieldset class="text-center" style="height: 100px;">
+            <textarea ng-enter="vm.createNewBio(vm.newBio)" id="bio-text" placeholder="Change your bio" data-ng-model="vm.newBio"></textarea>
+            <input type="submit" value="save" class="pure-button pure-button-primary" style="height:100%;">
+          </fieldset>
+        </form>
       </div>
       <div class="messaging" data-ng-hide="vm.isCurrentUser">
-        <a class="message-button" href data-ng-click="vm.message()">Send Message</a>
+        <a class="messagemessage-button" href data-ng-click="vm.message()">Send Message</a>
       </div>
       <div class="follow" data-ng-hide="vm.isCurrentUser">
         <a class="message-button" href data-ng-click="vm.follow()">{{vm.followString}}</a>

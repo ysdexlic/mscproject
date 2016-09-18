@@ -12,6 +12,8 @@
     vm.skip = 0;
     vm.otherUserId = $stateParams.userId;
     vm.isCurrentUser = false;
+    vm.editingInstrument = false;
+    vm.editingBio = false;
 
 
     if($stateParams.userId === ''){
@@ -120,6 +122,20 @@
           }
           else {
             vm.picture = 'assets/images/unknown.gif';
+          }
+
+          if(vm.data.bio === undefined) {
+            vm.bioEditString = 'Click here write your bio!';
+          }
+          else {
+            vm.bioEditString = '- edit';
+          }
+
+          if(vm.data.instrument === undefined) {
+            vm.instrumentEditString = 'Click here to add your instrument';
+          }
+          else {
+            vm.instrumentEditString = '- edit';
           }
 
           vm.pictureStyle = {'background': 'url(' + vm.picture + ') no-repeat center center / cover'};
@@ -243,6 +259,42 @@
 
         }, function(error) {
           $log.debug(error);
+        });
+    };
+
+    vm.editInstrument = function() {
+      if(vm.editingInstrument){
+        vm.editingInstrument = false;
+      }
+      else {
+        vm.editingInstrument = true;
+      }
+    };
+
+    vm.editBio = function() {
+      if(vm.editingBio) {
+        vm.editingBio = false;
+      }
+      else {
+        vm.editingBio = true;
+      }
+    };
+
+    vm.createNewInstrument = function (newInstrument) {
+      userApi.editUser($stateParams.userId, {'instrument':newInstrument})
+        .then(function(response) {
+          vm.data.instrument = newInstrument;
+          $('#instrument-text').val('');
+          vm.editingInstrument = false;
+        });
+    };
+
+    vm.createNewBio = function (newBio) {
+      userApi.editUser($stateParams.userId, {'bio':newBio})
+        .then(function(response) {
+          vm.data.bio = newBio;
+          $('#bio-text').val('');
+          vm.editingBio = false;
         });
     };
 
